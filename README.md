@@ -9,12 +9,10 @@ the commit as benign, a decision conflict, an effect-only conflict, or both. On 
 request (Rebase). On a decision conflict it holds the save and names the changed facts (LocalReplan). After every forwarded save it
 verifies the outcome. No stage calls a language model.
 
-The package is called `pair` because EASR is built on the PAIR web harness: applications, adapters, episode runner and oracle.
-
 ## Repository layout
 
 ```
-pair/                       Python package (method, baselines, harness)
+EASR/                       Python package (method, baselines, harness)
   easr.py                   EASR controller: operation contract, conflict classes, Rebase / LocalReplan / SafeHold,
                             post-commit VerifyOutcome (paper Section 3, Algorithm 1)
   controllers.py            registry of every compared method: B0-B7, EASR, ablations A1-A9,
