@@ -1,0 +1,21 @@
+{
+ "schema": "pair.protocol.easr_eval.v1",
+ "note": "Model-based EASR evaluation settings: dev_actor_v1 budgets, deterministic decoding (temperature 0), global seed 42 (per-call seed = 42*1000 + step), no screenshots (text observations are recorded).",
+ "run_config": {
+  "temperature": 0.0,
+  "max_steps": 40,
+  "max_tokens": 512,
+  "context_window": 32768,
+  "episode_seconds": 900,
+  "action_timeout_ms": 10000,
+  "text_chars": 8000,
+  "controls": 150,
+  "label_chars": 120,
+  "max_consecutive_invalid": 5,
+  "screenshots": false
+ },
+ "endpoint": {
+  "url": "http://127.0.0.1:18500/v1/chat/completions",
+  "model": "pair-actor"
+ }
+}

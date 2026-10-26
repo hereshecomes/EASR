@@ -1,0 +1,39 @@
+{
+ "project": {"name": "PAIR Support Desk", "description": "Internal support issues for PAIR test customers."},
+ "categories": ["General", "Billing", "Network", "Hardware"],
+ "users": [
+  {"key": "agent", "username": "pairagent", "realname": "Pat Agent", "email": "pairagent@pair.test", "password": "pair-test-agent-2026", "access": 55},
+  {"key": "colleague", "username": "jamie.ops", "realname": "Jamie Ops", "email": "jamie.ops@pair.test", "password": "pair-test-colleague-2026", "access": 55},
+  {"key": "customer", "username": "riley.customer", "realname": "Riley Customer", "email": "riley@pair.test", "password": "pair-test-customer-2026", "access": 25}
+ ],
+ "custom_fields": [
+  {"key": "customer_account", "name": "Customer account", "type": 0, "possible_values": ""},
+  {"key": "contract_tier", "name": "Contract tier", "type": 6, "possible_values": "Bronze|Silver|Gold"}
+ ],
+ "issues": [
+  {"key": "vpn", "summary": "VPN drops every 30 minutes for the Lisbon office", "category": "Network", "priority": 40, "severity": 60, "status": 50, "handler": "colleague", "reporter": "customer", "due_date": "2026-11-05",
+   "description": "Users in the Lisbon branch lose the VPN tunnel roughly every 30 minutes and must reconnect.", "steps": "Connect from the Lisbon office and wait.", "additional": "Started after the firewall update on 2 Oct.",
+   "custom": {"customer_account": "Lisbon Branch", "contract_tier": "Gold"}},
+  {"key": "vat", "summary": "Invoice 4471 shows the wrong VAT rate", "category": "Billing", "priority": 30, "severity": 50, "status": 10, "handler": null, "reporter": "customer", "due_date": null,
+   "description": "Invoice 4471 applies 21% VAT; the customer is VAT-exempt.", "steps": "", "additional": "Customer certificate on file.",
+   "custom": {"customer_account": "Northwind Traders", "contract_tier": "Silver"}},
+  {"key": "disk", "summary": "Replace failing disk in build server B2", "category": "Hardware", "priority": 50, "severity": 60, "status": 30, "handler": "agent", "reporter": "colleague", "due_date": "2026-10-28",
+   "description": "SMART reports reallocated sectors on disk 3 of build server B2.", "steps": "", "additional": "Spare disk is in the store room.",
+   "custom": {"customer_account": "Internal", "contract_tier": "Gold"}},
+  {"key": "reset", "summary": "Password reset email not received", "category": "General", "priority": 30, "severity": 50, "status": 20, "handler": "colleague", "reporter": "customer", "due_date": null,
+   "description": "Customer requested a reset twice; no email arrived.", "steps": "Request a reset for riley@pair.test.", "additional": "",
+   "custom": {"customer_account": "Contoso Ltd", "contract_tier": "Bronze"}},
+  {"key": "printer", "summary": "Printer on floor 3 jams on duplex jobs", "category": "Hardware", "priority": 20, "severity": 40, "status": 10, "handler": null, "reporter": "colleague", "due_date": null,
+   "description": "Duplex print jobs jam after the first sheet.", "steps": "Print any two-sided document.", "additional": "",
+   "custom": {"customer_account": "Internal", "contract_tier": "Bronze"}},
+  {"key": "usage", "summary": "Monthly usage report missing two accounts", "category": "Billing", "priority": 40, "severity": 50, "status": 40, "handler": "colleague", "reporter": "customer", "due_date": "2026-11-10",
+   "description": "The September usage report omits the Contoso and Northwind accounts.", "steps": "", "additional": "",
+   "custom": {"customer_account": "Finance", "contract_tier": "Silver"}},
+  {"key": "cert", "summary": "Guest Wi-Fi portal certificate expires on 1 Nov", "category": "Network", "priority": 40, "severity": 50, "status": 50, "handler": "agent", "reporter": "colleague", "due_date": "2026-10-31",
+   "description": "The TLS certificate of the guest portal expires on 2026-11-01.", "steps": "", "additional": "Renewal order placed.",
+   "custom": {"customer_account": "Internal", "contract_tier": "Gold"}},
+  {"key": "contoso", "summary": "Add Contoso to the priority support list", "category": "General", "priority": 30, "severity": 10, "status": 10, "handler": null, "reporter": "customer", "due_date": null,
+   "description": "Contoso signed a Gold contract and should be handled with priority.", "steps": "", "additional": "",
+   "custom": {"customer_account": "Contoso Ltd", "contract_tier": "Bronze"}}
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "agent_user": {"id": "pair-agent-user", "user_name": "pairagent", "password": "pair-test-agent-2026", "first_name": "Pat", "last_name": "Agent"},
+ "accounts": [
+  {"id": "pair-acct-primary", "name": "PAIR Primary Account", "industry": "Technology", "phone_office": "+1-555-0001"},
+  {"id": "pair-acct-other", "name": "PAIR Other Account", "industry": "Retail", "phone_office": "+1-555-0002"},
+  {"id": "pair-acct-northwind", "name": "Northwind Traders", "industry": "Wholesale", "phone_office": "+1-555-0003"},
+  {"id": "pair-acct-contoso", "name": "Contoso Ltd", "industry": "Manufacturing", "phone_office": "+1-555-0004"}
+ ],
+ "contacts": [
+  {"key": "phone_contact", "id": "pair-ct-phone", "first_name": "PAIR", "last_name": "Phone Contact", "title": "Procurement Lead",
+   "phone_work": "+1-555-0100", "email1": "phone.contact@pair.test", "account_id": "pair-acct-primary"},
+  {"key": "sentinel", "id": "pair-ct-sentinel", "first_name": "PAIR", "last_name": "Sentinel Contact", "title": "Account Manager",
+   "phone_work": "+1-555-0300", "email1": "sentinel@pair.test", "account_id": "pair-acct-primary"},
+  {"key": "alex_buyer", "id": "pair-ct-alex-buyer", "first_name": "PAIR", "last_name": "Alex Lee", "title": "Buyer",
+   "phone_work": "+1-555-0200", "email1": "alex.lee.buyer@pair.test", "account_id": "pair-acct-primary"},
+  {"key": "alex_analyst", "id": "pair-ct-alex-analyst", "first_name": "PAIR", "last_name": "Alex Lee", "title": "Analyst",
+   "phone_work": "+1-555-0201", "email1": "alex.lee.analyst@pair.test", "account_id": "pair-acct-primary"},
+  {"key": "jordan", "id": "pair-ct-jordan", "first_name": "Jordan", "last_name": "Smith", "title": "Operations Manager",
+   "phone_work": "+1-555-0400", "email1": "jordan.smith@northwind.test", "account_id": "pair-acct-northwind"},
+  {"key": "morgan", "id": "pair-ct-morgan", "first_name": "Morgan", "last_name": "Chen", "title": "CFO",
+   "phone_work": "+1-555-0500", "email1": "morgan.chen@contoso.test", "account_id": "pair-acct-contoso"}
+ ],
+ "notes": [
+  {"key": "directory_phone_contact", "id": "pair-note-dir-phone", "name": "Directory entry: PAIR Phone Contact", "contact": "pair-ct-phone",
+   "description": "Staff directory entry for PAIR Phone Contact (Procurement Lead).\nOffice phone: +1-555-0142"},
+  {"key": "directory_alex_buyer", "id": "pair-note-dir-alex-buyer", "name": "Directory entry: PAIR Alex Lee (Buyer)", "contact": "pair-ct-alex-buyer",
+   "description": "Staff directory entry for PAIR Alex Lee (Buyer).\nOffice phone: +1-555-0242"},
+  {"key": "directory_alex_analyst", "id": "pair-note-dir-alex-analyst", "name": "Directory entry: PAIR Alex Lee (Analyst)", "contact": "pair-ct-alex-analyst",
+   "description": "Staff directory entry for PAIR Alex Lee (Analyst).\nOffice phone: +1-555-0243"},
+  {"key": "directory_sentinel", "id": "pair-note-dir-sentinel", "name": "Directory entry: PAIR Sentinel Contact", "contact": "pair-ct-sentinel",
+   "description": "Staff directory entry for PAIR Sentinel Contact (Account Manager).\nOffice phone: +1-555-0300"}
+ ],
+ "opportunities": [
+  {"key": "renewal", "id": "pair-opp-renewal", "name": "PAIR Renewal Opportunity", "account_id": "pair-acct-primary", "amount": "9000",
+   "sales_stage": "Prospecting", "probability": "10", "date_closed": "2026-12-15", "lead_source": "Existing Customer"},
+  {"key": "northwind_expansion", "id": "pair-opp-northwind", "name": "Northwind Expansion", "account_id": "pair-acct-northwind", "amount": "42000",
+   "sales_stage": "Needs Analysis", "probability": "25", "date_closed": "2027-02-28", "lead_source": "Partner"}
+ ]
+}

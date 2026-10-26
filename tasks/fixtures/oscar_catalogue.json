@@ -1,0 +1,16 @@
+{
+  "shopper": {"email": "shopper@pair.test", "password": "pair-test-shopper-2026", "first_name": "Pat", "last_name": "Shopper"},
+  "address": {"first_name": "Pat", "last_name": "Shopper", "line1": "1 Test Street", "line4": "Testville", "postcode": "TS1 1AA", "country": "US"},
+  "category": "Chargers and accessories",
+  "products": [
+    {"upc": "PAIR-A", "title": "PAIR Charger A USB-C 65W", "price": "80.00", "stock": 20, "description": "USB-C power adapter, 65W output."},
+    {"upc": "PAIR-B", "title": "PAIR Charger B USB-C 65W", "price": "95.00", "stock": 20, "description": "USB-C power adapter, 65W output."},
+    {"upc": "PAIR-CABLE", "title": "PAIR Existing Cable", "price": "5.00", "stock": 50, "description": "USB-C to USB-C cable, 1m."},
+    {"upc": "PAIR-DOCK", "title": "PAIR Premium Dock", "price": "150.00", "stock": 10, "description": "Docking station with 8 ports."},
+    {"upc": "PAIR-STAND", "title": "PAIR Laptop Stand", "price": "35.00", "stock": 15, "description": "Aluminium laptop stand."},
+    {"upc": "PAIR-HDMI", "title": "PAIR HDMI Adapter", "price": "15.00", "stock": 30, "description": "USB-C to HDMI adapter."},
+    {"upc": "PAIR-MOUSE", "title": "PAIR Wireless Mouse", "price": "25.00", "stock": 25, "description": "Two-button wireless mouse."},
+    {"upc": "PAIR-C30", "title": "PAIR Charger C USB-C 30W", "price": "40.00", "stock": 20, "description": "USB-C power adapter, 30W output."}
+  ],
+  "session_key": "pairshoppersessionkey0000000001"
+}

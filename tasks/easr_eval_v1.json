@@ -1,0 +1,213 @@
+{
+ "schema": "pair.easr_eval.arms.v1",
+ "note": "Arms for the model-based EASR evaluation; controllers come from pair/controllers.py (B0/B1 have none and differ only in the agent prompt).",
+ "arms": {
+  "B0_vanilla": {
+   "tier": "browser",
+   "policy": "raw",
+   "guard": null
+  },
+  "B1_prompted_verify": {
+   "tier": "browser",
+   "policy": "verify",
+   "guard": null
+  },
+  "B2_preaction_verify": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B2_preaction_verify"
+  },
+  "B3_refresh_retry": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B3_refresh_retry"
+  },
+  "B4_postcondition": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B4_postcondition"
+  },
+  "B5_dependency_only": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B5_dependency_only"
+  },
+  "B6_full_replan": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B6_full_replan"
+  },
+  "B7_repair_v1": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "B7f_repair_v1_formfix",
+   "note": "Repair v1 (dependency validation + effective write + post-commit recheck) with one implementation defect fixed: the fresh copy of the edit form is read from the largest form, not the page's first form (MantisBT's navigation jump form). See CP6."
+  },
+  "EASR_v2": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "EASR_v2"
+  },
+  "A1_no_dependencies": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A1_no_dependencies",
+   "ablation_of": "EASR_v2"
+  },
+  "A2_intended_only": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A2_intended_only",
+   "ablation_of": "EASR_v2"
+  },
+  "A3_dom_only": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A3_dom_only",
+   "ablation_of": "EASR_v2"
+  },
+  "A4_syntactic_overlap": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A4_syntactic_overlap",
+   "ablation_of": "EASR_v2"
+  },
+  "A5_hold_instead_of_rebase": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A5_hold_instead_of_rebase",
+   "ablation_of": "EASR_v2"
+  },
+  "A6_no_postcommit": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A6_no_postcommit",
+   "ablation_of": "EASR_v2"
+  },
+  "A7_postcommit_on_signal": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A7_postcommit_on_signal",
+   "ablation_of": "EASR_v2"
+  },
+  "A8_full_replanning": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A8_full_replanning",
+   "ablation_of": "EASR_v2"
+  },
+  "A9_global_freshness": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "A9_global_freshness",
+   "ablation_of": "EASR_v2"
+  },
+  "TB_entity_occ": {
+   "tier": "app",
+   "policy": "verify",
+   "guard": null,
+   "apps": [
+    "crm",
+    "mantis"
+   ],
+   "world": {
+    "crm": {
+     "native_occ": "on"
+    },
+    "mantis": {
+     "native_occ": "on"
+    }
+   },
+   "note": "entity-level optimistic concurrency as shipped by the application (SuiteCRM's optimistic lock, MantisBT's last_updated check); unsupported for the shop's basket and account forms and for BreakingWeb"
+  },
+  "TB_field_cas": {
+   "tier": "app",
+   "policy": "verify",
+   "guard": null,
+   "apps": [
+    "crm",
+    "mantis"
+   ],
+   "world": {
+    "crm": {
+     "app_tier": "field_cas"
+    },
+    "mantis": {
+     "app_tier": "field_cas",
+     "native_occ": "off"
+    }
+   },
+   "note": "server-side effective write and field-level compare-and-set (apps/crm/custom/include/PairWorld.php, apps/mantis/world)"
+  },
+  "TB_integrated": {
+   "tier": "app",
+   "policy": "verify",
+   "controller": "TB_integrated",
+   "apps": [
+    "crm",
+    "mantis",
+    "oscar"
+   ],
+   "world": {
+    "crm": {
+     "app_tier": "integrated"
+    },
+    "mantis": {
+     "app_tier": "integrated",
+     "native_occ": "off"
+    },
+    "oscar": {
+     "app_tier": "conditional"
+    }
+   },
+   "note": "field_cas plus semantic predicates on the dependency values the agent saw (client attaches, application enforces); shop: predicates on product price for basket updates only (no field CAS for basket lines)"
+  },
+  "CQ_omit10": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "CQ_omit10",
+   "contract_study": true
+  },
+  "CQ_omit25": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "CQ_omit25",
+   "contract_study": true
+  },
+  "CQ_omit50": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "CQ_omit50",
+   "contract_study": true
+  },
+  "CQ_omit_targeted": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "CQ_omit_targeted",
+   "contract_study": true
+  },
+  "CQ_extra_dep": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "EASR_v2",
+   "contract_study": true,
+   "dependencies": "plus_untouched",
+   "note": "EASR with a wrong extra decision dependency (the untouched field)"
+  },
+  "CQ_missing_dep": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "EASR_v2",
+   "contract_study": true,
+   "dependencies": "none",
+   "note": "EASR without the task's decision dependency in its contract"
+  },
+  "EASR_v2_1_1": {
+   "tier": "browser",
+   "policy": "verify",
+   "controller": "EASR_v2_1_1",
+   "fix_of": "EASR_v2",
+   "note": "v2.1.1 fix (declared 2026-10-21): v2.1's post-commit check on the SPA JSON save path stopped waiting once the save request reached its handler, before the handler had recorded its result, and then skipped the check (race; model-free probe tests/easr/bw_postcheck_probe.py). Same mechanism otherwise. Used for the fault-suite rerun; the frozen arms keep v2.1. B4 (verify_only) shares the path but never missed its check (no read inside the handler; 0 of 540 SPA commits across cohorts), so it is not rerun; A6 has no post-commit check, so v2.1.1 does not change it."
+  }
+ }
+}
